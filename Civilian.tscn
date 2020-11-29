@@ -1,0 +1,69 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://people/Person3.png" type="Texture" id=1]
+[ext_resource path="res://people/Person12.png" type="Texture" id=2]
+[ext_resource path="res://people/Person7.png" type="Texture" id=3]
+[ext_resource path="res://people/Person8.png" type="Texture" id=4]
+[ext_resource path="res://people/Person9.png" type="Texture" id=5]
+[ext_resource path="res://people/Person1.png" type="Texture" id=6]
+[ext_resource path="res://people/Person14.png" type="Texture" id=7]
+[ext_resource path="res://people/Person2.png" type="Texture" id=8]
+[ext_resource path="res://people/Person13.png" type="Texture" id=9]
+[ext_resource path="res://people/Person11.png" type="Texture" id=10]
+[ext_resource path="res://people/Person10.png" type="Texture" id=11]
+[ext_resource path="res://people/Person6.png" type="Texture" id=12]
+[ext_resource path="res://people/Person4.png" type="Texture" id=13]
+[ext_resource path="res://people/Person5.png" type="Texture" id=14]
+[ext_resource path="res://Civilian.gd" type="Script" id=15]
+[ext_resource path="res://ashpile.png" type="Texture" id=16]
+[ext_resource path="res://font.tres" type="DynamicFontData" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "ashpile",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 17 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 12, 36 )
+
+[node name="Civilian" type="Node2D"]
+script = ExtResource( 15 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 3, 3 )
+frames = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -19.9505
+margin_top = -48.2778
+margin_right = 20.0495
+margin_bottom = -34.2778
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0.984314, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "$500"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Area"]
+position = Vector2( 0, 12 )
+shape = SubResource( 4 )
